@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSE Books</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .category-links {
+            margin-bottom: 20px;
+        }
+        .category-links a {
+            color: green;
+            text-decoration: none;
+            margin-right: 20px;
+        }
+        .category-links a:hover {
+            text-decoration: underline;
+        }
+        .book {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+        .book img {
+            max-width: 150px;
+            height: auto;
+            margin-right: 20px;
+            border-radius: 8px;
+        }
+        .book-details {
+            flex: 1;
+        }
+        .book-details h3 {
+            margin: 0 0 10px;
+            color: #333;
+        }
+        .book-details p {
+            margin: 5px 0;
+        }
+        .book button {
+            padding: 10px;
+            font-size: 16px;
+            color: white;
+            background-color: green;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .book button:hover {
+            background-color: darkgreen;
+        }
+    </style>
+</head>
+<body>
+
+
+        <!-- Example Book Entry -->
+        <div class="book">
+            <img src="civil1.png" alt="Book Image">
+            <div class="book-details">
+                <h3>CIVIL1</h3>
+                <p>Author: AUTHOR_CV1</p>
+                <p>Price: ₹350.00</p>
+            </div>
+            <button onclick="addToCart('CIVIL1', 300.00, 'civil1.png')">Add to Cart</button>
+        </div>
+        <div class="book">
+            <img src="civil2.png" alt="Book Image">
+            <div class="book-details">
+                <h3>CIVIL2</h3>
+                <p>Author: AUTHOR_CV2</p>
+                <p>Price: ₹299.00</p>
+            </div>
+            <button onclick="addToCart('CIVIL2', 299.00, 'civil2.png')">Add to Cart</button>
+        </div>
+        <div class="book">
+            <img src="civil3.png" alt="Book Image">
+            <div class="book-details">
+                <h3>CIVIL3</h3>
+                <p>Author: AUTHOR_CV3</p>
+                <p>Price: ₹510.00</p>
+            </div>
+            <button onclick="addToCart('CIVIL3', 510.00, 'civil3.png')">Add to Cart</button>
+        </div>
+        <!-- Add more books here -->
+    </div>
+
+    <script>
+        function addToCart(title, price, image) {
+            const loggedIn = localStorage.getItem('loggedIn');
+            if (loggedIn) {
+                const cart = JSON.parse(localStorage.getItem('cart')) || [];
+                const existingItemIndex = cart.findIndex(item => item.title === title);
+                if (existingItemIndex > -1) {
+                    cart[existingItemIndex].quantity += 1;
+                } else {
+                    cart.push({
+                        title,
+                        price,
+                        image,
+                        quantity: 1
+                    });
+                }
+                localStorage.setItem('cart', JSON.stringify(cart));
+                alert(`${title} added to cart!`);
+            } else {
+                window.location.href = 'login.html';
+            }
+        }
+    </script>
+
+</body>
+</html>
