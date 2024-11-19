@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="books.xsl"?>
+<!DOCTYPE bookstore SYSTEM "books.dtd">
+<bookstore>
+<book>
+<title>Java 24</title>
+<author>Balagursawmy</author>
+<isbn>123456789</isbn>
+<publisher>Ss publication</publisher>
+<edition>4th</edition>
+<price>2500</price>
+</book>
+<book>
+<title>Overcoming Negative Thoughts</title>
+<author>Emily Stone</author>
+<isbn>987654321</isbn>
+<publisher>Mindful Publishing</publisher>
+<edition>1st</edition>
+<price>1000</price>
+</book>
+</bookstore>
