@@ -1,0 +1,8 @@
+<servlet>
+    <servlet-name>UserCookieServlet</servlet-name>
+    <servlet-class>UserCookieServlet</servlet-class>
+</servlet>
+<servlet-mapping>
+    <servlet-name>UserCookieServlet</servlet-name>
+    <url-pattern>/setCookies</url-pattern>
+</servlet-mapping>
